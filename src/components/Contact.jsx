@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchContactById } from '../services/fetchContact';
+import { getContactById } from '../services/fetchContact';
 import { getIconComponent, getCallTypeColor } from './ContactCard';
 import { formatDate } from './Contacts';
 
@@ -9,7 +9,7 @@ const Contact = ({ id }) => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const data = await fetchContactById(id);
+                const data = await getContactById(id);
                 setContact(data);
             } catch (error) {
                 console.error('Error fetching contact:', error);
